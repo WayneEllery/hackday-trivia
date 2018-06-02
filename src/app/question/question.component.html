@@ -1,0 +1,12 @@
+Question {{question.number}} of 10
+
+<label>{{question.text}}</label>
+<ul>
+  <li *ngFor="let ques, let i = index of question.answers">
+    <input type="radio" name="questions" [value]="i" id="question{{i}}" [(ngModel)]="question.selectedAnswerIndex"/>
+    <label for="question{{i}}">{{ques}}</label>
+  </li>
+</ul>
+
+<button type="button" class="btn btn-primary-outline pull-right" (click)="nextClick();">
+  <i class="fa fa-plus"></i> Next</button>
