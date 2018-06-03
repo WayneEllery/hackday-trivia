@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Question } from './question/Question';
 import questions from './questions';
-const Chance = require('chance');
+import Chance from 'chance';
 const chance = new Chance();
 
 @Injectable({
@@ -23,7 +23,7 @@ export class QuestionService {
 
   resetQuestions() {
     const randomIndexes = chance.unique(chance.natural, 10, {min: 0, max: 12});
-    const randomQns = randomIndexes.map(((i, index) => ( { ...questions[i], number: index + 1 } ));
+    const randomQns = randomIndexes.map((i, index) => ( { ...questions[i], number: index + 1 } ));
     this.questions = randomQns;
   }
 }
